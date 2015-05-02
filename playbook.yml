@@ -1,0 +1,24 @@
+---
+- hosts: all
+  sudo: yes
+  tasks:
+    - name: update a server
+      apt: update_cache=yes
+    - name: upgrade a server
+      apt: upgrade=full
+    - name: install git
+      apt: pkg=git state=latest
+    - name: install vim
+      apt: pkg=vim state=latest
+    - name: install emacs24
+      apt: pkg=emacs24 state=latest
+    - name: install nginx
+      apt: pkg=nginx state=latest
+      notify: 
+       - restart nginx
+    - name: install mysql
+      apt: pkg=mysql-server
+    - name: start mysql
+      service: name=mysql state=started enabled=yes
+    - name: install PHP
+      apt: name=php5 state=latest
