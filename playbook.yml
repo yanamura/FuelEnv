@@ -20,5 +20,15 @@
       apt: pkg=mysql-server
     - name: start mysql
       service: name=mysql state=started enabled=yes
-    - name: install PHP
-      apt: name=php5 state=latest
+    - name: install PHP cli
+      apt: name=php5-cli
+    - name: install PHP fpm
+      apt: name=php5-fpm
+    - name: install FuelPHP
+      git: repo=https://github.com/fuel/fuel dest=/fuel version=1.7/master recursive=yes
+    - name: setup1 FuelPHP
+      shell: php /fuel/composer.phar self-update
+    - name: setup2 FuelPHP
+      shell: php /fuel/composer.phar update
+    - name: setup3 FuelPHP
+      shell: php /fuel/oil refine install
