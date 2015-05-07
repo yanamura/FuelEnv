@@ -1,0 +1,8 @@
+---
+        - name: install oil command
+          shell: curl get.fuelphp.com/oil | sh
+          ignore_errors: yes
+
+        - name: install Fuel PHP
+          shell: cd /vagrant; oil create fuel;
+          ignore_errors: yes
