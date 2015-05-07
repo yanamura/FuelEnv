@@ -14,7 +14,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network "forwarded_port", guest: 80, host: 3334
 
   config.vm.provision "ansible" do |ansible|
-    ansible.playbook = "site.yml"
+    ansible.playbook = "provisionings/site.yml"
     #    ansible.limit = $ip_of_current_host
     ansible.limit = "default"
   end

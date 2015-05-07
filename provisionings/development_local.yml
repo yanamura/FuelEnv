@@ -3,6 +3,6 @@
       sudo: yes
       roles:
         - common
-        - nginx
-        - mysql
-        - fuelphp
+        - web
+        - db
+        - webframework

@@ -1,0 +1,17 @@
+---
+- name: install mysql
+  apt: pkg={{ item }} state=installed
+  with_items:
+   - mysql-server
+   - phthon-mysql
+
+- name: start mysql
+  service: name=mysql state=started enabled=yes
+
+- name: create db
+  mysql_db: db={{ dbname }} state=present encoding=utf8
+  ignore_errors: yes
+
+- name: create db user
+  mysql_user: name={{ dbuser }} password={{ dbpassword }} priv=*.*:ALL state=present
+  ignore_errors: yes

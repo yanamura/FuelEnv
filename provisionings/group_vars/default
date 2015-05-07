@@ -1,0 +1,5 @@
+virtualhost_conf: virtual_development_local.conf.j2
+
+dbuser: root
+dbname: fuel-dev
+dbpassword: root
