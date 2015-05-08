@@ -3,6 +3,7 @@
       sudo: yes
       roles:
         - common
+        - dev_tools
         - web
         - db
         - webframework

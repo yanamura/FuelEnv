@@ -1,3 +1,4 @@
+nginx_conf: nginx_development_local.conf.j2
 virtualhost_conf: virtual_development_local.conf.j2
 
 dbuser: root

@@ -4,24 +4,9 @@
         - name: upgrade a server
           apt: upgrade=full
 
-        - name: install git
-          apt: pkg=git state=latest
-
         - name: install vim
           apt: pkg=vim state=latest
  
-        # TODO: dev only
-        - name: install emacs24
-          apt: pkg=emacs24 state=latest
-        - name: install screen
-          apt: pkg=screen state=latest
-        - name: install tmux
-          apt: pkg=tmux state=latest
-        - name: install rsync
-          apt: pkg=rsync state=latest
-        - name: install curl
-          apt: pkg=curl state=latest
-
         - name: install PHP cli
           apt: name=php5-cli
         - name: install PHP fpm
@@ -30,5 +15,4 @@
           apt: pkg=php5-mysql
         - name: configure virtualhost
           template: src=www.conf.j2 dest=/etc/php5/fpm/pool.d/www.conf mode:0644
-        - name: install PHPUnit
-          get_url: url=https://phar.phpunit.de/phpunit.phar dest=/usr/local/bin/phpunit mode=555
+

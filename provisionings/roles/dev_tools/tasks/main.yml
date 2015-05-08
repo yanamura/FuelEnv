@@ -1,0 +1,17 @@
+---
+        - name: install git
+          apt: pkg=git state=latest
+
+        - name: install emacs24
+          apt: pkg=emacs24 state=latest
+        - name: install screen
+          apt: pkg=screen state=latest
+        - name: install tmux
+          apt: pkg=tmux state=latest
+        - name: install rsync
+          apt: pkg=rsync state=latest
+        - name: install curl
+          apt: pkg=curl state=latest
+
+        - name: install PHPUnit
+          get_url: url=https://phar.phpunit.de/phpunit.phar dest=/usr/local/bin/phpunit mode=555
