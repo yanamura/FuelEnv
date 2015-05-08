@@ -28,5 +28,7 @@
           apt: name=php5-fpm
         - name: install php5-mysql
           apt: pkg=php5-mysql
+        - name: configure virtualhost
+          template: src=www.conf.j2 dest=/etc/php5/fpm/pool.d/www.conf mode:0644
         - name: install PHPUnit
           get_url: url=https://phar.phpunit.de/phpunit.phar dest=/usr/local/bin/phpunit mode=555
