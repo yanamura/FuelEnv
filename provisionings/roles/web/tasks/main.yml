@@ -4,9 +4,11 @@
 
 - name: configure nginx
   template: src={{ nginx_conf }} dest=/etc/nginx/nginx.conf mode:0644
+  notify: nginx restart
 
 - name: configure virtualhost
   template: src={{ virtualhost_conf }} dest=/etc/nginx/sites-available/virtual.conf mode:0644
+  notify: nginx restart
 
 - name: start nginx
   service: name=nginx state=started enabled=yes
