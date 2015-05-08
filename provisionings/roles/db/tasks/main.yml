@@ -3,7 +3,7 @@
   apt: pkg={{ item }} state=installed
   with_items:
    - mysql-server
-   - phthon-mysql
+   - python-mysqldb
 
 - name: start mysql
   service: name=mysql state=started enabled=yes

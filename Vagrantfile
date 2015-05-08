@@ -17,5 +17,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     ansible.playbook = "provisionings/site.yml"
     #    ansible.limit = $ip_of_current_host
     ansible.limit = "default"
+    ansible.groups = {
+      "vagrant" => ["default"],
+    }
   end
 end
