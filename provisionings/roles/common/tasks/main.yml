@@ -13,8 +13,11 @@
           apt: name=php5-fpm
         - name: install php5-mysql
           apt: pkg=php5-mysql
-        - name: configure virtualhost
+        - name: configure fpm
           template: src=www.conf.j2 dest=/etc/php5/fpm/pool.d/www.conf mode:0644
           notify: restart php-fpm
 
+        - name: set Timezone
+          copy: content='Asia/Tokyo' dest=/etc/timezone owner=root group=root mode=0644 backup=yes
+          notify: update Timezone
 
