@@ -1,8 +1,13 @@
 ---
-        - name: install oil command
-          shell: curl get.fuelphp.com/oil | sh
-          ignore_errors: yes
-
-        - name: install Fuel PHP
-          shell: cd /vagrant; oil create fuel;
-          ignore_errors: yes
+- name: install oil command
+  shell: curl get.fuelphp.com/oil | sh
+  ignore_errors: yes
+- name: install FuelPHP
+  git: repo=https://github.com/fuel/fuel dest={{ proj_path }} version=1.7/master recursive=yes
+  ignore_errors: yes
+- name: setup1 FuelPHP
+  shell: cd {{ proj_path }}; php composer.phar self-update
+- name: setup2 FuelPHP
+  shell: cd {{ proj_path }}; php composer.phar update
+- name: setup3 FuelPHP
+  shell: cd {{ proj_path }}; oil refine install
