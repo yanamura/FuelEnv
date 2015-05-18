@@ -18,11 +18,11 @@
     - /etc/nginx/sites-enable
 
 - name: configure nginx
-  template: src={{ nginx_conf }} dest=/etc/nginx/nginx.conf mode:0644
+  template: src={{ nginx_conf }} dest=/etc/nginx/nginx.conf mode=0644
   notify: nginx restart
 
 - name: configure virtualhost
-  template: src={{ virtualhost_conf }} dest=/etc/nginx/sites-available/virtual.conf mode:0644
+  template: src={{ virtualhost_conf }} dest=/etc/nginx/sites-available/virtual.conf mode=0644
   notify: nginx restart
 
 - name: create link to virtualhost
